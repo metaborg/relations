@@ -1,0 +1,103 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #111;
+  background-color: #EEE;
+  height:100%;  
+  overflow-y: scroll; 
+}
+body {
+  height:100%;
+  margin: 0;
+  padding: 0;
+}
+a{
+  color: #111;
+}
+div.menu {
+  background-color: #666;
+}
+div.menu a{
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px;
+  padding-left:10px;
+  padding-right:10px;
+  color: #EEE;
+  text-decoration: none;
+}
+div.menu a.active{
+  background-color: #EEE;
+  color: #111;
+}
+div.menu a.active:hover{
+  background-color: #EEE;
+}
+div.menu a:hover{
+  background-color: #777;
+}
+div.content {
+  padding:10px;
+}
+div.entity {
+  border:solid 1px #DDD;
+}
+div.entity-title{
+  background-color: #DDD;
+  padding: 2px;
+  padding-left:10px;
+  padding-right:10px;
+}
+div.entity-field{
+  border-top:solid 1px #DDD;
+  padding: 2px;
+  padding-left:10px;
+  padding-right:10px;
+}
+div.entity-field-label{
+  display:block;
+  float:left;
+  width:175px;
+}
+div.entity-field-value{
+  display:inline-block;
+}
+div.entity-link-list{
+  overflow:auto;
+}
+div.entity-link-list a{
+  display:block;
+  float:left;
+  width:100px;
+  height:100px;
+  margin-right:10px;
+  margin-bottom:10px;
+  background-color:#DDD;
+  text-decoration: none;
+  padding:5px;
+}
+div.entity-link-list a:hover{
+  background-color:#D4D4D4;
+}
+
+textarea { 
+  height : 100px;
+  width : 200px;
+}
+select {
+  width : 200px;
+}
+input[type="text"]{
+  width : 200px;
+}
+input[type="file"]{
+  width : 200px;
+}
+img {
+  border-width: 0px;
+}
+
+
