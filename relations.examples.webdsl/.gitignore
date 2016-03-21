@@ -1,7 +1,5 @@
 bin
-nativejava
 .servletapp
-lib
 WebContent
 .settings/
 .webdsl-parsecache
