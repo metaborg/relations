@@ -5,14 +5,14 @@ page root() {
   main("root")
 }
 
-define main(active: String){
+template main(active: String){
   menu(active)
   div [class = "content"] {
     elements()
   }
 }
 
-define menu(active : String){
+template menu(active : String){
   div [class = "menu"] {
 	  navigate root() [class = if(active=="root") "active" else ""] { "Home" }
     navigate assignment() [class = if(active=="assignment") "active" else ""] { "Assignment" }
@@ -58,17 +58,17 @@ page assignment2(s : Assignment) {
   }
 }
 
-define assignmentlinklist(values : [Assignment]){
+template assignmentlinklist(values : [Assignment]){
   entitylinklist{
     for (s in values){
       navigate assignment2(s) [ ] { output(s.getName()) }
     }
   }
 }
-define assignmentlinklist(values : {Assignment}){
+template assignmentlinklist(values : {Assignment}){
   assignmentlinklist([v |v : Assignment in values order by v.name]){}
 }
-define assignmentlinklist(values : Assignment){
+template assignmentlinklist(values : Assignment){
 	assignmentlinklist([values])
 }
 
@@ -101,17 +101,17 @@ page course2(s : Course) {
   }
 }
 
-define courselinklist(values : [Course]){
+template courselinklist(values : [Course]){
   entitylinklist{
     for (s in values){
       navigate course2(s) [ ] { output(s.getName()) }
     }
   }
 }
-define courselinklist(values : {Course}){
+template courselinklist(values : {Course}){
   courselinklist([v |v : Course in values order by v.name]){}
 }
-define courselinklist(values : Course){
+template courselinklist(values : Course){
   courselinklist([values])
 }
 
@@ -146,17 +146,17 @@ page enrollment2(s : Enrollment) {
   }
 }
 
-define enrollmentlinklist(values : [Enrollment]){
+template enrollmentlinklist(values : [Enrollment]){
   entitylinklist{
     for (s in values){
       navigate enrollment2(s) [ ] { output(s.getName()) }
     }
   }
 }
-define enrollmentlinklist(values : {Enrollment}){
+template enrollmentlinklist(values : {Enrollment}){
   enrollmentlinklist([v |v : Enrollment in values order by v.name]){}
 }
-define enrollmentlinklist(values : Enrollment){
+template enrollmentlinklist(values : Enrollment){
   enrollmentlinklist([values])
 }
 
@@ -186,17 +186,17 @@ page student2(s:Student) {
   }
 }
 
-define studentlinklist(values : [Student]){
+template studentlinklist(values : [Student]){
   entitylinklist{
     for (s in values){
       navigate student2(s) [ ] { output(s.getName()) }
     }
   }
 }
-define studentlinklist(values : {Student}){
+template studentlinklist(values : {Student}){
   studentlinklist([v |v : Student in values order by v.name]){}
 }
-define studentlinklist(values : Student){
+template studentlinklist(values : Student){
   studentlinklist([values])
 }
 
@@ -244,39 +244,39 @@ page submission2(s:Submission) {
   }
 }
 
-define submissionlinklist(values : [Submission]){
+template submissionlinklist(values : [Submission]){
   entitylinklist{
     for (s in values){
       navigate submission2(s) [ ] { output(s.getName()) }
     }
   }
 }
-define submissionlinklist(values : {Submission}){
+template submissionlinklist(values : {Submission}){
   submissionlinklist([v |v : Submission in values order by v.name]){}
 }
-define submissionlinklist(values : Submission){
+template submissionlinklist(values : Submission){
   submissionlinklist([values])
 }
 
-define entitylinklist(){
+template entitylinklist(){
   div [class = "entity-link-list"] {
     elements()
   }
 }
 
-define entity(){
+template entity(){
   div [class = "entity"] {
     elements()
   }
 }
 
-define entitytitle(value:String){
+template entitytitle(value:String){
   div [class = "entity-title"] {
     output(value)
   }
 }
 
-define entityfield(name:String){
+template entityfield(name:String){
   div [class = "entity-field"] {
     div [class = "entity-field-label"] {
       output(name) " :"
@@ -286,18 +286,18 @@ define entityfield(name:String){
     }
   }
 }
-define entityfield(name:String, value:String){
+template entityfield(name:String, value:String){
   entityfield(name){output(value)}
 }
-define entityfield(name:String, value:Int){
+template entityfield(name:String, value:Int){
   entityfield(name, value.toString())
 }
-define entityfield(name:String, value:Float){
+template entityfield(name:String, value:Float){
   entityfield(name, value.toString())
 }
-define entityfield(name:String, value:Bool){
+template entityfield(name:String, value:Bool){
   entityfield(name, value.toString())
 }
-define entityfield(name:String, value:DateTime){
+template entityfield(name:String, value:DateTime){
   entityfield(name, value.toString())
 }
