@@ -58,19 +58,7 @@ page assignment2(s : Assignment) {
   }
 }
 
-template assignmentlinklist(values : [Assignment]){
-  entitylinklist{
-    for (s in values){
-      navigate assignment2(s) [ ] { output(s.getName()) }
-    }
-  }
-}
-template assignmentlinklist(values : {Assignment}){
-  assignmentlinklist([v |v : Assignment in values order by v.name]){}
-}
-template assignmentlinklist(values : Assignment){
-	assignmentlinklist([values])
-}
+derive linklist Assignment
 
 page course() {
   main("course"){
@@ -101,19 +89,7 @@ page course2(s : Course) {
   }
 }
 
-template courselinklist(values : [Course]){
-  entitylinklist{
-    for (s in values){
-      navigate course2(s) [ ] { output(s.getName()) }
-    }
-  }
-}
-template courselinklist(values : {Course}){
-  courselinklist([v |v : Course in values order by v.name]){}
-}
-template courselinklist(values : Course){
-  courselinklist([values])
-}
+derive linklist Course
 
 page enrollment() {
   main("enrollment"){
@@ -146,19 +122,7 @@ page enrollment2(s : Enrollment) {
   }
 }
 
-template enrollmentlinklist(values : [Enrollment]){
-  entitylinklist{
-    for (s in values){
-      navigate enrollment2(s) [ ] { output(s.getName()) }
-    }
-  }
-}
-template enrollmentlinklist(values : {Enrollment}){
-  enrollmentlinklist([v |v : Enrollment in values order by v.name]){}
-}
-template enrollmentlinklist(values : Enrollment){
-  enrollmentlinklist([values])
-}
+derive linklist Enrollment
 
 page student() {
   main("student"){
@@ -186,19 +150,7 @@ page student2(s:Student) {
   }
 }
 
-template studentlinklist(values : [Student]){
-  entitylinklist{
-    for (s in values){
-      navigate student2(s) [ ] { output(s.getName()) }
-    }
-  }
-}
-template studentlinklist(values : {Student}){
-  studentlinklist([v |v : Student in values order by v.name]){}
-}
-template studentlinklist(values : Student){
-  studentlinklist([values])
-}
+derive linklist Student
 
 page submission() {
   main("submission"){
@@ -244,19 +196,7 @@ page submission2(s:Submission) {
   }
 }
 
-template submissionlinklist(values : [Submission]){
-  entitylinklist{
-    for (s in values){
-      navigate submission2(s) [ ] { output(s.getName()) }
-    }
-  }
-}
-template submissionlinklist(values : {Submission}){
-  submissionlinklist([v |v : Submission in values order by v.name]){}
-}
-template submissionlinklist(values : Submission){
-  submissionlinklist([values])
-}
+derive linklist Submission
 
 template entitylinklist(){
   div [class = "entity-link-list"] {
@@ -290,14 +230,34 @@ template entityfield(name:String, value:String){
   entityfield(name){output(value)}
 }
 template entityfield(name:String, value:Int){
-  entityfield(name, value.toString())
+  entityfield(name, if(value==null) displayNull() else value.toString())
 }
 template entityfield(name:String, value:Float){
-  entityfield(name, value.toString())
+  entityfield(name, if(value==null) displayNull() else value.toString())
 }
 template entityfield(name:String, value:Bool){
-  entityfield(name, value.toString())
+  entityfield(name, if(value==null) displayNull() else value.toString())
 }
 template entityfield(name:String, value:DateTime){
-  entityfield(name, value.toString())
+  entityfield(name, if(value==null) displayNull() else value.toString())
+}
+
+function displayNull() : String {
+  return "";
+}
+
+derivetemplate linklist Entname {
+  template entnamelinklist(values : [Entname]){
+    entitylinklist{
+      for (s in values){
+        navigate entname2(s) [ ] { output(s.getName()) }
+      }
+    }
+  }
+  template entnamelinklist(values : {Entname}){
+    entnamelinklist([v |v : Entname in values order by v.name]){}
+  }
+  template entnamelinklist(values : Entname){
+    entnamelinklist([values])
+  }
 }
