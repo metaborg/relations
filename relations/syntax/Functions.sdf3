@@ -1,0 +1,15 @@
+module Functions
+
+imports
+
+  Common
+  Expressions
+  Types
+  
+context-free syntax
+
+  Function.Function = <<ID> (<{Param ", "}*>) : <PrimitiveType><MultiplicityDefaultOne><Ordering> = <Exp>>
+  
+  Param.Param = <<ID>:<PrimitiveType><MultiplicityDefaultOne><Ordering>>
+  
+  

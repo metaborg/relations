@@ -5,6 +5,7 @@ imports
 	Model
 	Data
 	Execute
+	Functions
 
 
 context-free syntax // modules
@@ -34,4 +35,11 @@ context-free syntax // modules
 		
 			<{Execute "\n"}*>
 
+  >
+
+  ModuleSection.FuncDef = <
+    functions
+    
+      <{Function "\n"}*>
+    
   >

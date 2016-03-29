@@ -23,6 +23,7 @@ lexical syntax // Keywords
 	Keyword = "entity"
 	Keyword = "false"
 	Keyword = "Float"
+  Keyword = "functions"
 	Keyword = "Int"
 	Keyword = "max"
 	Keyword = "match"

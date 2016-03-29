@@ -35,6 +35,8 @@ namespaces
 	This
   MemberType
   MemberValue
+  Function
+  Param
 
 properties
 
@@ -49,6 +51,7 @@ properties
 	rel-ty               of Shortcut    : Entity
 	side                 of Relation    : Term
 	member-origin        of MemberValue : Term
+	param-types          of Function    : Term
 	
 binding rules // modules
 
@@ -57,6 +60,24 @@ binding rules // modules
 		scopes Entity
 		scopes Entity2
 		scopes EntityInstance
+		scopes Function
+
+binding rules // functions
+
+  Function(f-name, param*, f-ty, f-mu, f-or, expr):
+    defines Function f-name
+      of type f-ty
+      of multiplicity f-mu
+      of ordering f-or
+      of param-types param-ty*
+      where param* has type param-ty*
+    scopes Param
+  
+  Param(p-name, p-ty, p-mu, p-or):
+    defines Param p-name
+      of type p-ty
+      of multiplicity p-mu
+      of ordering p-or
 
 binding rules // model
 
@@ -224,8 +245,10 @@ binding rules // data
 binding rules // references
 
 	Ref(x) :
-		refers to EntityInstance x
-	otherwise
+    refers to Param x
+  otherwise
+    refers to EntityInstance x
+  otherwise
 		refers to Attribute x	in Entity e-ty
 		where This() resolves to This this
 		and this has type e-ty
@@ -301,5 +324,8 @@ binding rules // references
 	
 	This() :
 		refers to This This()
+		
+  Call(f-name, param*):
+    refers to Function f-name
 
 

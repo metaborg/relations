@@ -6,6 +6,7 @@ imports
   types/typing/assignments
   types/typing/casts
   types/typing/data
+  types/typing/functions
   types/typing/literals
   types/typing/logic
   types/typing/math

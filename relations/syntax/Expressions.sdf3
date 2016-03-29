@@ -84,6 +84,11 @@ context-free syntax // built-in functions
   Exp.Count              = <count ( <Exp> )>
   Exp.Conj               = <conj ( <Exp> )>
   Exp.Disj               = <disj ( <Exp> )>
+  
+context-free syntax // user-defined functions
+
+  Exp.Call               = <<ID>(<{Exp ", "}*>)>
+  Exp.Call               = <<Exp>.<ID>(<{Exp ", "}*>)>
 
 context-free syntax // references
 

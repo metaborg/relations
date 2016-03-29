@@ -15,6 +15,9 @@ context-free syntax
 	
 	MultiplicityZ           = Multiplicity
 	MultiplicityZ.Zero      = <0>
+	
+	MultiplicityDefaultOne  = Multiplicity
+	MultiplicityDefaultOne.One = <>
 
 	Ordering.Ordered        = <(ordered)>
   Ordering.Unordered      = <(unordered)>
