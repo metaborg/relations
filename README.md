@@ -1,3 +1,8 @@
+# This project has been moved
+
+The project has been moved to https://github.com/MetaBorgCube/IceDust.
+
+
 # Relational programming
 
 This is an information system modeling language; a declarative specification language with first class relations and derived values.
